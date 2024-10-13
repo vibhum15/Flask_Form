@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{%block title%} Home {%endblock%}
+{%block content%}  
+<h1>Hello mom</h1>
+    <ul>
+        {% for val in list %}
+        {%if val == 20 %}
+        <li style="color: red">{{val}}</li>
+        {%else%}
+        <li style="color: green;">{{val}}</li>
+        {%endif%}
+        {% endfor%}
+    </ul>
+    <a href="{{url_for('another')}}">Another</a>
+    {%endblock%}

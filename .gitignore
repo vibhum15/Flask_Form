@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask specific
+instance/
+*.sqlite3
+*.db
+.env
+.env.*
+*.bak
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Flask migrations
+migrations/
+
+# Pipenv
+Pipfile
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook files
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Environments created by various tools
+.env
+.venv/
+env/
+ENV/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE specific files
+# VS Code
+.vscode/
+# JetBrains IDEs (PyCharm, IntelliJ)
+.idea/
+
+# macOS files
+.DS_Store
