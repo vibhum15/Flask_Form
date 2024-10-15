@@ -3,5 +3,16 @@
 {%block title%} Home {%endblock%}
 {%block content%}  
 <h1>Hello mom</h1>
-    <a href="{{url_for('another')}}">Another</a>
+    <form method="POST", action="{{url_for('index')}}">
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <h1>File Upload</h1>
+    <form action="{{ url_for('file_upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xls,.xlsx,.txt" required><br>
+        <button type="submit">Upload</button>
+    </form>
+    
     {%endblock%}
