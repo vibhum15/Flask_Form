@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, Response
 import pandas as pd 
 
 app = Flask(__name__,template_folder='templates')
@@ -24,5 +24,19 @@ def file_upload():
     elif file.filename.endswith('.xls') or file.filename.endswith('.xlsx'):
         df = pd.read_excel(file)
         return df.to_html()
+
+@app.route('/convert_to_csv',methods = ['POST'])
+def convert_to_csv():
+    file = request.files['file']
+    df = pd.read_excel(file)
+    response = Response(
+        df,
+         mimetype="text/csv",
+        headers={
+                "Content-Disposition": "attachment; filename=result.csv"
+        }
+    )
+    return response
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug = True)
