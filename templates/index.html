@@ -21,4 +21,34 @@
         <button type="submit">Convert to CSV</button>
     </form>
     
+    <h1>Convert to CSV 2</h1>
+    <form action="{{ url_for('convert_to_csv2') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xls,.xlsx,.txt" required><br>
+        <button type="submit">Convert to CSV</button>
+    </form>
+    
+    <h1>JavaScript JSON Request</h1>
+    <button id="post_button">Send Post Request</button>
+
+    <script type="text/javascript">
+        const postButton = document.getElementById('post_button')
+
+        const jsonData = {name: 'Aditya', greeting: 'Hello'}
+
+        postButton.addEventListener('click', ()=>{
+            fetch('{{url_for("handle_post")}}',{
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json; charset=utf-8'
+                },
+                body: JSON.stringify(jsonData)
+                
+            })
+            .then(responce => responce.json())
+            .then(data => console.log('Success:',data))
+            .catch((error)=>{
+                console.log('Error:', error)
+            })
+        });
+    </script>
     {%endblock%}
